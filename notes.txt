@@ -1,0 +1,47 @@
+konfigurasi
+ada di autoload
+$autoload['libraries'] = array('form_validation');
+
+tambahkan helper didalam url
+$autoload['helper'] = array('url');
+
+ada di config
+index_page kosongin hapus index.php
+$config['index_page'] = '';
+
+base url ganti sama path foldernya sesuai nama foldernya
+contoh
+$config['base_url'] = 'http://localhost/stater_ci/';
+
+jangan lupa buat file .httaccess dengan value
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+ada di routes
+di routes default controller ganti sesuai dengan controller yang mau ditampilkan
+contoh
+$route['default_controller'] = 'main';
+
+terus intinya buat controller, terus view
+
+kalau mau passing data di halaman lain pakai $data['nama_daga'] = $datanya
+atau jika mau passing banyak data dibuat array asosiatif $data = array ('key' => value)
+contoh $data['result] = $result;
+contoh 
+$data = array (
+  'nama' => $nama,
+  'type_kamar' => $type_kamar,
+  'lama_inap' => $lama_inap,
+  'harga_kamar' => $harga_kamar,
+  'subtotal' => $subtotal,
+  'diskon' => $diskon,
+  'total' => $total,
+  'ppn' => $ppn,
+  'total_dibayar' => $total_dibayar,
+  'not_found' => $not_found,
+)
+
+optional
+untuk membuat style tambahkan folder assets dan copy folder bootstrap yang css dan js
